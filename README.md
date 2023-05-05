@@ -9,7 +9,7 @@ Simple App for testing OpenAI PHP Client
 
 1. Clone the repository and install dependencies:
 ```
-git clone git@github.com:say-my-name-user/openai-php-client.git
+git clone https://github.com/say-my-name-user/openai-php-client.git
 cd openai-php-client
 composer install
 ```
