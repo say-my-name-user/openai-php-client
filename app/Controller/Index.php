@@ -54,18 +54,12 @@ class Index extends AbstractController
         }
 
         if (in_array('submit-text', $postKeys, true)) {
-            $response .= '<pre>' . var_export(
-                    $this->openAiModel->getCompletion($_POST['text'])->toArray()['choices'][0]['message']['content'] ?? '',
-                    true
-                ) . '</pre>';
+            $response .= $this->openAiModel->getCompletion($_POST['text'])->toArray()['choices'][0]['message']['content'] ?? '';
             return $response;
         }
 
         if (in_array('submit-audio', $postKeys, true)) {
-            $response .= '<pre>' . var_export(
-                    $this->openAiModel->transcribeAudio($this->uploadFile())->toArray()['text'] ?? '',
-                    true
-                ) . '</pre>';
+            $response .= $this->openAiModel->transcribeAudio($this->uploadFile())->toArray()['text'] ?? '';
             return $response;
         }
 
