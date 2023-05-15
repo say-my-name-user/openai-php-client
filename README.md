@@ -18,5 +18,4 @@ composer install
 ```
 php -S localhost:8000 -t pub
 ```
-4. See the result in your browser: http://localhost:8000:
-![Screenshot](screenshot.png)
+4. See the result in your browser: http://localhost:8000

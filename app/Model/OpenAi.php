@@ -6,6 +6,7 @@ namespace App\Model;
 use OpenAI\Client;
 use OpenAI\Responses\Audio\TranscriptionResponse;
 use OpenAI\Responses\Chat\CreateResponse;
+use OpenAI\Responses\Images\CreateResponse as ImagesCreateResponse;
 
 class OpenAi
 {
@@ -49,6 +50,25 @@ class OpenAi
                 'model'           => 'whisper-1',
                 'file'            => fopen($filePath, 'r'),
                 'response_format' => 'verbose_json',
+            ]
+        );
+    }
+
+    /**
+     * Generates the image by OpenAI.
+     *
+     * @param string $description
+     *
+     * @return \OpenAI\Responses\Images\CreateResponse
+     */
+    public function generateImage(string $description): ImagesCreateResponse
+    {
+        return $this->openAiClient->images()->create(
+            [
+                'prompt'          => $description,
+                'n'               => 1,
+                'size'            => '512x512',
+                'response_format' => 'b64_json',
             ]
         );
     }
